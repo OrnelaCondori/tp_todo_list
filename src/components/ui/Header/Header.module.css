@@ -1,0 +1,16 @@
+.conteinerHeader {
+    width: 100vw;
+    height: 8vh;
+    background-color: var(--color-violeta);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.containerTitleHeader {
+    margin: 0 auto;
+}
+.titleHeader {
+    color: white;
+    text-transform: uppercase;
+    font-weight: 600;
+}

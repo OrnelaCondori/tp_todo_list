@@ -2,9 +2,9 @@ import styles from "./Header.module.css"
 
 export const Header = () => {
     return (
-        <div>
-            <div>
-                <h2>Kairos</h2>
+        <div className={styles.conteinerHeader}>
+            <div className={styles.conteinerTitleHeader}>
+                <h2 className={styles.titleHeader}>Kairos</h2>
             </div>
         </div>
     )

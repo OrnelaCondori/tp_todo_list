@@ -1,10 +1,10 @@
-import React from "react"
+
+import { BacklogScreen } from "./components/screens/BacklogScreen"
 
 function App() {
 
   return (
-    <>
-    </>
+    <BacklogScreen/>
   )
 }
 
