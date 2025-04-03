@@ -1,0 +1,26 @@
+.containerPrincipalMenu{
+    height: 92vh;
+    display: flex;
+    width: 20vw;
+    margin-left: 0;
+    flex-direction: column;
+}
+.containerPrincipalBoton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+}
+.containerPrincipalBoton button {
+    background-color: var(--color-violeta-secundario);
+    color: #fff;
+    width: 15vw;
+    height: 5vh;
+    border: var(--color-violeta) solid 0.5px;
+    border-radius: 8px;
+}
+.containerPrincipalListSprint {
+    background-color: #fff;
+    flex-direction: column;
+    height: 82vh;
+}

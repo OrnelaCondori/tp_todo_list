@@ -1,5 +1,5 @@
 
-import { BacklogScreen } from "./components/screens/BacklogScreen"
+import { BacklogScreen } from "./components/screens/BacklogScreen/BacklogScreen"
 
 function App() {
 

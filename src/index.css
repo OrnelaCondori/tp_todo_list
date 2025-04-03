@@ -1,6 +1,6 @@
 :root {
-    --color-violeta : #783F99;
-    --color-violeta-secundario: (#783F99, 0.7);
+    --color-violeta : rgb(120, 63, 153);
+    --color-violeta-secundario: rgba(120, 63, 153, 0.6);
     --color-fondo: #F5F5F5;
 }
 * {
@@ -8,4 +8,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+html {
+    background-color: rgba(153, 71, 201, 0.752);
+    font-family:sans-serif;
+}
+
 
