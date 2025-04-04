@@ -46,12 +46,12 @@ export const ModalTarea: FC<IModal> = ({ handleCloseModal }) => {
   }
 
   return (
-    <div className={styles.containerPrincipalModal}>
-      <div className={styles.contendPopUp}>
+    <div className={styles.modal}>
+      <div className={styles.modalContent}>
         <div>
           <h3>{tareaActiva ? "Editar Tarea" : "Crear Tarea"} </h3>
         </div>
-        <form onSubmit={handleSubmit} className={styles.formContent}>
+        <form onSubmit={handleSubmit} >
           <div>
             <input onChange={handleChange} value={formValues.titulo} type="text" required autoComplete="off" placeholder="Ingrese el Titulo" name="titulo" />
             <textarea onChange={handleChange} value={formValues.descripcion} placeholder="Ingrese una descripción" required name="descripcion"></textarea>
@@ -64,10 +64,10 @@ export const ModalTarea: FC<IModal> = ({ handleCloseModal }) => {
               <option value="completada">Completada</option>
             </select>
           </div>
-          <div className={styles.buttonCard}>
-            <button className={styles.button1}onClick={handleCloseModal}>Cancelar</button>
-            <button className={styles.button2}
-              type="submit">{tareaActiva ? "Editar Tarea" : "Crear Tarea"}</button>
+          <div >
+            <button className={styles.closeBoton}onClick={handleCloseModal}>X</button>
+            <button className={styles.saveBoton}
+              type="submit">{tareaActiva ? "Editar Tarea" : "guardar"}</button>
           </div>
         </form>
       </div>
