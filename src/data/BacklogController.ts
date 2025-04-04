@@ -11,16 +11,21 @@ export const getBacklogTareasController = async (): Promise<ITarea[] | undefined
         return response.data.tareas;
     } catch (error) {
         console.log("Problemas en getBacklogTareasController", error);
+
     }
 };
 
 // Función para crear una nueva tarea en el backlog
 export const createBacklogTareaController = async (tareaNueva: ITarea) => {
     try {
-        const tareasBd = await getBacklogTareasController();
+        // Obtiene el backlog actual
+        const response = await axios.get<{ tareas: ITarea[] }>(API_URL);
+    
+        // Agrega la nueva tarea al array de tareas
+        const nuevasTareas = [...response.data.tareas, tareaNueva];
 
-        if (tareasBd) {
-            await putBacklog([...tareasBd, tareaNueva]);
+        if (response) {
+            await putBacklog(nuevasTareas);
         } else {
             await putBacklog([tareaNueva]);
         }
@@ -47,12 +52,12 @@ export const updateBacklogTareaController = async (tareaActualizada: ITarea) => 
         }
         return tareaActualizada;
     } catch (error) {
-        console.log("Error en updateBacklogTareaController", error);
+        console.error("Error en updateBacklogTareaController", error);
     }
 };
 
 // Función para eliminar una tarea por su ID
-export const deleteBacklogTareaController = async (idTareaAEliminar: string) => {
+export const deleteByIdBacklogTareaController = async (idTareaAEliminar: string) => {
     try {
         const tareasBd = await getBacklogTareasController();
 

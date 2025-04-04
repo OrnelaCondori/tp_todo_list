@@ -9,11 +9,9 @@
     justify-content: center;
     align-items: center;
 }
-.containerTitleHeader {
-    margin: 0 auto;
-}
 .titleHeader {
+    margin-top: 4px;
     color: white;
     text-transform: uppercase;
-    font-weight: 600;
+    font-size:larger;
 }
