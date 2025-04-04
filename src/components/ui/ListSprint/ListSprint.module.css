@@ -2,7 +2,7 @@
     height: 92vh;
     display: flex;
     width: 20vw;
-    margin-left: 0;
+    margin-top: 8vh;
     flex-direction: column;
 }
 .containerPrincipalBoton {

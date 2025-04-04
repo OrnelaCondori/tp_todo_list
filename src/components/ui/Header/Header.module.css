@@ -1,5 +1,8 @@
 .conteinerHeader {
-    width: 100vw;
+    position: fixed; /* Mantiene el header arriba */
+    top: 0;
+    left: 0;
+    width: 100%; /* Asegura que cubra todo el ancho */
     height: 8vh;
     background-color: var(--color-violeta);
     display: flex;

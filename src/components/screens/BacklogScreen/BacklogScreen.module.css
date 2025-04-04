@@ -1,3 +1,6 @@
 .ContainerScreen{
     background-color: var(--color-fondo);
+    display: flex;
+    height: 100vh; /* Ajusta según necesidad */
+    width: 100%;
 }

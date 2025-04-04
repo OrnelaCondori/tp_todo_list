@@ -40,35 +40,35 @@ const handleAgregarTarea = async (titulo: string, descripcion: string) => {
 
 return (
     <div className={styles.containerPrincipalBacklog}>
-    <div className={styles.conteinerContentBacklog}>
-        <div className={styles.titlesContainerBacklog}>
-        <h2>Backlog</h2>
-        <h3>Tareas en el Backlog</h3>
-        </div>
+        <div className={styles.conteinerContentBacklog}>
+            <div className={styles.titlesContainerBacklog}>
+            <h2>Backlog</h2>
+            <h3>Tareas en el Backlog</h3>
+            </div>
 
-        <div className={styles.containerTareasBacklog}>
-        {tareas.length > 0 ? (
-            tareas.map((tarea) => <CardTareaBacklog key={tarea.id} tarea={tarea} />)
-        ) : (
-            <h3>No hay tareas en el backlog</h3>
-        )}
-        </div>
+            <div className={styles.containerTareasBacklog}>
+            {tareas.length > 0 ? (
+                tareas.map((tarea) => <CardTareaBacklog key={tarea.id} tarea={tarea} />)
+            ) : (
+                <h3>No hay tareas en el backlog</h3>
+            )}
+            </div>
 
-        <div>
-        <button
-            className={styles.buttonAddTareasBacklog}
-            onClick={() => setMostrarModal(true)}
-        >
-            <span className="material-symbols-outlined">add</span>
-        </button>
-        </div>
+            <div>
+            <button
+                className={styles.buttonAddTareasBacklog}
+                onClick={() => setMostrarModal(true)}
+            >
+                <span className="material-symbols-outlined">add</span>
+            </button>
+            </div>
 
-        <ModalTareas
-        isOpen={mostrarModal}
-        onClose={() => setMostrarModal(false)}
-        onSave={handleAgregarTarea}
-        />
-    </div>
+            <ModalTareas
+            isOpen={mostrarModal}
+            onClose={() => setMostrarModal(false)}
+            onSave={handleAgregarTarea}
+            />
+        </div>
     </div>
 );
 };
