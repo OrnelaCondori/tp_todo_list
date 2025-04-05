@@ -57,7 +57,7 @@ export const ModalTarea: FC<IModal> = ({ handleCloseModal }) => {
             <textarea onChange={handleChange} value={formValues.descripcion} placeholder="Ingrese una descripción" required name="descripcion"></textarea>
             <input onChange={handleChange} value={formValues.fechaLimite} type="date" required autoComplete="off" name="fechaLimite" />
               {/* Select para Estado */}
-            <select name="estado" value={formValues.estado} onChange={handleChange} required>
+            <select className={styles.selectEstado} name="estado" value={formValues.estado} onChange={handleChange} required>
               <option value="">Selecciona un estado</option>
               <option value="pendiente">Pendiente</option>
               <option value="en proceso">En Proceso</option>

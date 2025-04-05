@@ -69,3 +69,21 @@ textarea {
     background-color: #5a056b; /* Un tono más oscuro */
 }
 
+.selectEstado {
+    width: 100%;
+    padding: 10px;
+    border-radius: 12px;
+    background-color: #fff;
+    font-size: 14px;
+    color: #333;
+    outline: none;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.selectEstado option {
+    background: white;
+    color: #333;
+    font-size: 14px;
+}
+
+

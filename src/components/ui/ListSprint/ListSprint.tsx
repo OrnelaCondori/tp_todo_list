@@ -11,7 +11,7 @@ return (
         </div>
         <div className={styles.containerPrincipalListSprint}>
             <div className={styles.containerTitleAndButton}>
-                <h2>Sprints</h2>
+                <h2>Lista de Sprints</h2>
             </div>
             <div className={styles.containerSprint}>
                     <div>

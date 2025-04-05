@@ -12,9 +12,19 @@
     width: 72vw;
     margin-top: 4vh;
 }
-.titlesContainerBacklog{
+.titlesContainerBacklog {
     margin-bottom: 3vh;
-    font-size: larger;
+    font-size: 22px;
+    font-weight: bold;
+    color: #6a1b9a;
+    text-align: left;
+    width: 100%;
+    padding-left: 5px;
+}
+.titlesContainerBacklog h3 {
+    font-size: 24px;
+    margin-bottom: 12px;
+    color: #6a1b9a;
 }
 .containerTareasBacklog {
     display: flex;
@@ -22,14 +32,42 @@
     gap: 12px;
     margin-bottom: 4vh;
 }
-.titlesContainerBacklog h2 {
-    margin-bottom: 12px;
+.containerTareasBacklog h3 {
+    text-align: center;
+    font-size: 18px;
+    color: #888;
+    font-weight: normal;
+    background: #f8d7ff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15);
 }
 
-.buttonAddTareasBacklog{
-    padding: 4px;
+.buttonAddTareasBacklog {
+    padding: 12px;
     border: none;
     border-radius: 50%;
-    background-color: var(--color-violeta);
-    color: rgba(190, 115, 213, 0.871);
+    background-color: #6a1b9a;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease-in-out, transform 0.2s ease;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.buttonAddTareasBacklog:hover {
+    background-color: #8e24aa;
+    transform: scale(1.1);
+}
+
+.buttonAddTareasBacklog span {
+    font-size: 32px;
 }

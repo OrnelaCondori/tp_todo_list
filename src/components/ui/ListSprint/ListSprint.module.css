@@ -1,26 +1,104 @@
-.containerPrincipalMenu{
+.containerPrincipalMenu {
     height: 92vh;
     display: flex;
     width: 20vw;
     margin-top: 8vh;
     flex-direction: column;
+    background-color: white;
+    padding: 15px;
+    border-right: var(--color-fondo) 1vw solid;
+    box-shadow: 2px 0px 8px rgba(0, 0, 0, 0.1);
 }
+
 .containerPrincipalBoton {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 10vh;
+    width: 100%;
+    margin-bottom: 10px; 
 }
+
 .containerPrincipalBoton button {
     background-color: var(--color-violeta-secundario);
     color: #fff;
     width: 15vw;
     height: 5vh;
-    border: var(--color-violeta) solid 0.5px;
+    border: none;
     border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
 }
+
+.containerPrincipalBoton button:hover {
+    background-color: var(--color-violeta);
+}
+
+/* Contenedor de la lista de Sprints */
 .containerPrincipalListSprint {
     background-color: #fff;
+    display: flex;
     flex-direction: column;
     height: 82vh;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+/* Estilo para el título "Sprints" */
+.containerTitleAndButton {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centrar */
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--color-violeta);
+}
+
+.containerTitleAndButton h2 {
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--color-violeta);
+    margin: 0;
+    text-align: center;
+}
+
+/* Contenedor de "No hay Sprints" y botón */
+.containerSprint {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+}
+
+/* Mensaje de "No hay Sprints" */
+.containerSprint h3 {
+    font-size: 16px;
+    color: #888;
+    background: #f8d7ff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Botón de agregar Sprint */
+.containerSprint button {
+    background-color: var(--color-violeta);
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, transform 0.2s ease;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.containerSprint button:hover {
+    background-color: #8e24aa;
+    transform: scale(1.1);
 }
