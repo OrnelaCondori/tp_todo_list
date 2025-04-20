@@ -37,22 +37,20 @@ export const ListSprint = () => {
                     <h2>Lista de Sprints</h2>
                 </div>
                 <div className={styles.containerSprint}>
-                        <div>
-                            {sprints.length > 0 ? (
-                                sprints.map((sprint) => (
-                                    <CardSprint
-                                        key={sprint.id}
-                                        sprint={sprint}
-                                        handleOpenModalEdit={handleOpenModalEdit}
-                                    />
-                                ))
-                            ) : (
-                                <h3>No hay Sprints</h3>
-                            )}
-                        </div>
-                        <div>
-                            <button onClick={() => setOpenModalSprint(true)}>+</button>
-                        </div>
+                    {sprints.length > 0 ? (
+                        sprints.map((sprint) => (
+                            <CardSprint
+                                key={sprint.id}
+                                sprint={sprint}
+                                handleOpenModalEdit={handleOpenModalEdit}
+                            />
+                        ))
+                    ) : (
+                        <h3>No hay Sprints</h3>
+                    )}
+                </div>
+                <div>
+                    <button className={styles.buttonAdd} onClick={() => setOpenModalSprint(true)}>+</button>
                 </div>
             </div>
             {openModalSprint && <ModalSprint handleCloseModal={handleCloseModal} />}

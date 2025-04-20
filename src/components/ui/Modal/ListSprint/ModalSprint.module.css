@@ -1,0 +1,66 @@
+.modal {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Fondo semi-transparente */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modalContent {
+    background: #f8d7ff; /* Color lila claro */
+    padding: 20px;
+    width: 90%;
+    max-width: 450px;
+    border-radius: 15px; /* Bordes redondeados */
+    position: relative;
+    text-align: center;
+    border: 2px solid #5a056b; /* Borde violeta oscuro */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.closeBoton {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #5a056b; /* Violeta oscuro */
+}
+
+h3 {
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 8px;
+    font-size: 14px;
+    border-radius: 12px;
+    border: none;
+    background: white;
+    outline: none;
+}
+
+
+.saveBoton {
+    padding: 10px 16px;
+    background-color: #7a2896; /* Violeta oscuro */
+    color: white;
+    border: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 16px;
+}
+
+.saveBoton:hover {
+    background-color: #5a056b; /* Un tono más oscuro */
+}

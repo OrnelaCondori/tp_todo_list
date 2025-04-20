@@ -4,10 +4,7 @@
     width: 20vw;
     margin-top: 8vh;
     flex-direction: column;
-    background-color: white;
-    padding: 15px;
-    border-right: var(--color-fondo) 1vw solid;
-    box-shadow: 2px 0px 8px rgba(0, 0, 0, 0.1);
+    background-color: var(--color-fondo);
 }
 
 .containerPrincipalBoton {
@@ -15,15 +12,15 @@
     justify-content: center;
     align-items: center;
     height: 10vh;
-    width: 100%;
-    margin-bottom: 10px; 
+    margin-bottom: 0.5rem; 
+    margin-top: 0.5rem;
 }
 
 .containerPrincipalBoton button {
-    background-color: var(--color-violeta-secundario);
+    background-color: var(--color-violeta);
     color: #fff;
     width: 15vw;
-    height: 5vh;
+    height: 6vh;
     border: none;
     border-radius: 8px;
     font-size: 16px;
@@ -33,7 +30,7 @@
 }
 
 .containerPrincipalBoton button:hover {
-    background-color: var(--color-violeta);
+    background-color: var(--color-violeta-secundario);
 }
 
 /* Contenedor de la lista de Sprints */
@@ -43,7 +40,7 @@
     flex-direction: column;
     height: 82vh;
     padding: 15px;
-    border-radius: 10px;
+    align-items: center;
 }
 
 /* Estilo para el título "Sprints" */
@@ -51,16 +48,15 @@
     display: flex;
     align-items: center;
     justify-content: center; /* Centrar */
-    margin-bottom: 15px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid var(--color-violeta);
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #373737;
 }
 
 .containerTitleAndButton h2 {
     font-size: 22px;
     font-weight: bold;
-    color: var(--color-violeta);
-    margin: 0;
+    color: #373737;
     text-align: center;
 }
 
@@ -71,6 +67,7 @@
     align-items: center;
     gap: 10px;
     text-align: center;
+    margin-bottom: 1.5rem;
 }
 
 /* Mensaje de "No hay Sprints" */
@@ -84,7 +81,7 @@
 }
 
 /* Botón de agregar Sprint */
-.containerSprint button {
+.buttonAdd {
     background-color: var(--color-violeta);
     color: white;
     font-size: 20px;
@@ -98,7 +95,7 @@
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.containerSprint button:hover {
+.buttonAdd:hover {
     background-color: #8e24aa;
     transform: scale(1.1);
 }

@@ -9,11 +9,11 @@
         "fechaLimite": "2025-03-20"
       },
       {
-        "id": "Fri Apr 04 2025",
-        "titulo": "prueba 2",
-        "descripcion": "ejemplo de descripcion",
-        "fechaLimite": "2025-04-18",
-        "estado": "pendiente"
+        "id": "Sun Apr 20 2025",
+        "titulo": "tarea 2",
+        "descripcion": "descripcion de la tarea",
+        "fechaLimite": "2025-04-16",
+        "estado": "en proceso"
       }
     ]
   },
