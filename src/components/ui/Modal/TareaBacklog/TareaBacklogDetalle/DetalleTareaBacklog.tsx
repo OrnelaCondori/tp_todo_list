@@ -12,10 +12,10 @@ export const DetalleTareaBacklog: React.FC<DetalleTareaBacklogProps> = ({tarea, 
         <div className={styles.modalOverlay}>
             <div className={styles.modalContent}>
                 <h2>Detalle de Tarea</h2>
-                <p><span>Titulo: </span>{tarea.titulo}</p>
-                <p><span>Descripción: </span>{tarea.descripcion}</p>
-                <p><span>Fecha límite: </span>{tarea.fechaLimite}</p>
-                <p><span>Estado: </span>{tarea.estado}</p>
+                <p><span><b>Título: </b></span>{tarea.titulo}</p>
+                <p><span><b>Descripción: </b></span>{tarea.descripcion}</p>
+                <p><span><b>Fecha límite: </b></span>{tarea.fechaLimite}</p>
+                <p><span><b>Estado: </b></span>{tarea.estado}</p>
                 <div>
                     <button onClick={onClose}>Cerrar</button>
                 </div>

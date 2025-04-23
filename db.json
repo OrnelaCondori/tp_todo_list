@@ -2,18 +2,18 @@
   "backlog": {
     "tareas": [
       {
-        "id": "Fri Apr 04 2025",
-        "titulo": "prueba 1",
-        "descripcion": "ejemplo de descripcion cambios",
-        "fechaLimite": "2025-04-18",
-        "estado": "pendiente"
+        "id": "dcec8ad4-31e0-4279-8ccf-72bd1f2bb52d",
+        "titulo": "Tarea backlog",
+        "descripcion": "Descripcion tarea backlog",
+        "estado": "pendiente",
+        "fechaLimite": "2025-03-20"
       },
       {
-        "id": "Mon Apr 21 2025",
-        "titulo": "tarea2",
-        "descripcion": "descripcion de ejemplo",
-        "fechaLimite": "2025-04-23",
-        "estado": "pendiente"
+        "id": "Sun Apr 20 2025",
+        "titulo": "tarea 2",
+        "descripcion": "descripcion de la tarea",
+        "fechaLimite": "2025-04-16",
+        "estado": "en proceso"
       }
     ]
   },
@@ -33,6 +33,13 @@
             "fechaLimite": "2025-03-06"
           }
         ]
+      },
+      {
+        "id": "Wed Apr 23 2025",
+        "fechaInicio": "2025-04-15",
+        "fechaCierre": "2025-04-25",
+        "nombre": "sprint 21",
+        "tareas": []
       }
     ]
   }

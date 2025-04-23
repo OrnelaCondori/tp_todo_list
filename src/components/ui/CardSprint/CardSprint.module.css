@@ -1,0 +1,46 @@
+.constainerSprintCard {
+    background-color: var(--color-fondo);
+    width: 16vw;
+    padding: 0.8rem 0.2rem 0.8rem 1rem;
+    border-left: 0.4rem solid var(--color-violeta);
+    position: relative;
+    cursor: pointer;
+}
+.textSprintCard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.textSprintCard p {
+    text-transform: uppercase;
+}
+.textSprintCard span {
+    color: #808080;
+}
+.menuDesplegable {
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 0.4rem 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    top: 0rem; 
+    right: -9rem; 
+    z-index: 2000;
+    width: 140px;
+}
+
+.menuDesplegable button {
+    width: 100%;
+    padding: 0.4rem 1rem;
+    text-align: left;
+    background: none;
+    border: none;
+    font-size: 0.9rem;
+    cursor: pointer;
+    color: #333;
+}
+
+.menuDesplegable button:hover {
+    background-color: #f5f5f5;
+}
