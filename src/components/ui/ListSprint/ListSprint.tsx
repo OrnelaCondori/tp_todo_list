@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { sprintStore } from "../../../store/sprintStore"
+import { useNavigate } from 'react-router-dom';
+
 import styles from "./ListSprint.module.css"
 
 import { useSprint } from "../../../hooks/useSprint"; // Hook para traer sprints
@@ -11,6 +13,8 @@ export const ListSprint = () => {
     const setSprintActiva = sprintStore((state) => state.setSprintActiva);
     const { getSprints, sprints } = useSprint(); // Traemos sprints
     const [openModalSprint, setOpenModalSprint] = useState(false);
+
+    const navigate = useNavigate();
 
     // Cuando se monta el componente, traemos los sprints
     useEffect(() => {
@@ -24,12 +28,15 @@ export const ListSprint = () => {
     const handleCloseModal = () => {
         setOpenModalSprint(false);
     };
+    const toTareasBacklog = () => {
+        navigate(`/backlog`)
+    }
 
     return (
         <div className={styles.containerPrincipalMenu}>
             <div className={styles.containerPrincipalBoton}>
                 <div>
-                    <button> Backlog </button>
+                    <button onClick={toTareasBacklog}> Backlog </button>
                 </div>
             </div>
             <div className={styles.containerPrincipalListSprint}>

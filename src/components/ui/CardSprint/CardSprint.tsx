@@ -1,4 +1,5 @@
 import { FC, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ISprint } from '../../../types/IInterfaces';
 import { useSprint } from '../../../hooks/useSprint';
 
@@ -14,6 +15,7 @@ export const CardSprint: FC<ICardSprint> = ({ sprint, handleOpenModalEdit }) => 
     const { eliminarSprint } = useSprint();
     const [mostrarMenu, setMostrarMenu] = useState(false);
     const [mostrarDetalle, setMostrarDetalle] = useState(false);
+    const navigate = useNavigate() // para redirigir a la pagina de sprint
 
     const deleteSprint = () => {
         eliminarSprint(sprint.id);
@@ -30,14 +32,21 @@ export const CardSprint: FC<ICardSprint> = ({ sprint, handleOpenModalEdit }) => 
         setMostrarMenu(false);
     };
 
+    const toTareasSprint = () => {
+        navigate(`/sprint/${sprint.id}`)
+    }
+
     return (
         <>
-            <div className={styles.constainerSprintCard}>
+            <div className={styles.constainerSprintCard} onClick={toTareasSprint}>
                 <div className={styles.textSprintCard}>
                     <p>{sprint.nombre}</p>
                     <span
                         className="material-symbols-outlined"
-                        onClick={() => setMostrarMenu(!mostrarMenu)}
+                        onClick={(e) => {
+                            e.stopPropagation() //Esto evita que al abrir tambien cambie
+                            setMostrarMenu(!mostrarMenu)}
+                        }
                     >
                         more_vert
                     </span>

@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { ITarea } from "../../../types/IInterfaces";
 
-import styles from "./ListTareasBacklog.module.css"
+import styles from "./TareasBacklog.module.css"
 import { CardTareaBacklog } from "../CardTareaBacklog/CardTareaBacklog";
 import { tareaStore } from "../../../store/tareaStore";
 import { useTareas } from "../../../hooks/useTarea";
 import { ModalTarea} from "../Modal/TareaBacklog/ModalAgregarTarea";
-export const ListTareasBacklog = () => {
+export const TareasBacklog = () => {
 
     //seteo tarea activa
     const setTareaActiva=tareaStore((state)=>state.setTareaActiva)

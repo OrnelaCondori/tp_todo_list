@@ -13,3 +13,8 @@ export const putSprintList = async (sprints: ISprint[]) => {
         console.log("Error en putSprint", error);
     }
 }
+
+export const getSprintPorId = async (id: string) => {
+    const response = await axios.get(`${API_URL}/sprints/${id}`)
+    return response.data
+}

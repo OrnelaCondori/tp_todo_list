@@ -4,6 +4,7 @@
     padding: 0.8rem 0.2rem 0.8rem 1rem;
     border-left: 0.4rem solid var(--color-violeta);
     position: relative;
+    cursor: pointer;
 }
 .textSprintCard {
     display: flex;

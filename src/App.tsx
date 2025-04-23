@@ -1,10 +1,10 @@
 
-import { BacklogScreen } from "./components/screens/BacklogScreen/BacklogScreen"
+import { AppRouter } from "./routes/AppRouter"
 
 function App() {
 
   return (
-    <BacklogScreen/>
+    <AppRouter />
   )
 }
 
