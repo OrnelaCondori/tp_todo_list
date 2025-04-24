@@ -31,13 +31,6 @@
             "descripcion": "Estamos aca",
             "estado": "pendiente",
             "fechaLimite": "2025-03-06"
-          },
-          {
-            "id": "",
-            "titulo": "tarea ",
-            "descripcion": "nueva tarea",
-            "fechaLimite": "2025-04-25",
-            "estado": "en proceso"
           }
         ]
       },

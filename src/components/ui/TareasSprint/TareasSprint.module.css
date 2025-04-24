@@ -3,3 +3,18 @@
     height: 92vh;
     margin-top: 8vh;
 }
+
+.containerPrincipalBacklog{
+    width: 80%;
+    height: 92vh;
+    margin-top: 8vh;
+    display: flex;
+    background-color: white;
+    border-left: var(--color-fondo) 1.5vw solid;
+    flex-direction: column;
+    align-items: center;
+}
+.conteinerContentBacklog{
+    width: 72vw;
+    margin-top: 4vh;
+}

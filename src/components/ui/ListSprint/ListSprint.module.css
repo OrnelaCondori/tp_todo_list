@@ -4,8 +4,8 @@
     width: 20vw;
     margin-top: 8vh;
     flex-direction: column;
-    padding: 15px;
-    border-right: var(--color-fondo) 1vw solid;
+    /* padding: 15px;
+    border-right: var(--color-fondo) 1vw solid; */
 }
 
 .containerPrincipalBoton {
