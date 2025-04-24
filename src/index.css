@@ -2,6 +2,10 @@
     --color-violeta : rgb(120, 63, 153);
     --color-violeta-secundario: rgba(120, 63, 153, 0.6);
     --color-fondo: #F5F5F5;
+    --color-fondo-secundario: #D9D9D9;
+    --color-rojo: #E37575;
+    --color-amarrillo: #EDA363;
+    --color-verde: #7DD4A1;
 }
 * {
     margin: 0;

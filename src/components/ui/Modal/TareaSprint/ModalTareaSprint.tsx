@@ -50,42 +50,42 @@ export const ModalTareaSprint: FC<IModal> = ({ handleCloseModal, idSprint, tarea
         }
 
     return (
-        <div >
-        <div >
-            <div>
-                <h3>{tareaSeleccionada ? "Editar Tarea" : "Crear Tarea"}</h3>
-            </div>
-            <form onSubmit={handleSubmit} >
+        <div className={styles.modal}>
+            <div className={styles.modalContent}>
                 <div>
-                    <input
-                        onChange={handleChange} value={formValues.titulo}
-                        type="text" required autoComplete="off" placeholder="Ingrese el Titulo" name="titulo"
-                    />
-                    <textarea
-                        onChange={handleChange} value={formValues.descripcion} placeholder="Ingrese una descripción" required name="descripcion"
-                    />
-                    <input
-                        onChange={handleChange} value={formValues.fechaLimite}
-                        type="date" required autoComplete="off" name="fechaLimite"
-                    />
-                    <select
-                        name="estado"
-                        value={formValues.estado} onChange={handleChange} required
-                    >
-                        <option value="">Selecciona un estado</option>
-                        <option value="pendiente">Pendiente</option>
-                        <option value="en proceso">En Proceso</option>
-                        <option value="completada">Completada</option>
-                    </select>
+                    <h3>{tareaSeleccionada ? "Editar Tarea" : "Crear Tarea"}</h3>
                 </div>
-                <div className={styles.buttonCard}>
-                    <button onClick={handleCloseModal}>X</button>
-                    <button  type="submit">
-                        {tareaSeleccionada ? "Editar Tarea" : "Crear Tarea"}
-                    </button>
-                </div>
-            </form>
+                <form onSubmit={handleSubmit} >
+                    <div>
+                        <input
+                            onChange={handleChange} value={formValues.titulo}
+                            type="text" required autoComplete="off" placeholder="Ingrese el Titulo" name="titulo"
+                        />
+                        <textarea
+                            onChange={handleChange} value={formValues.descripcion} placeholder="Ingrese una descripción" required name="descripcion"
+                        />
+                        <input
+                            onChange={handleChange} value={formValues.fechaLimite}
+                            type="date" required autoComplete="off" name="fechaLimite"
+                        />
+                        <select className={styles.selectEstado}
+                            name="estado"
+                            value={formValues.estado} onChange={handleChange} required
+                        >
+                            <option value="">Selecciona un estado</option>
+                            <option value="pendiente">Pendiente</option>
+                            <option value="en proceso">En Proceso</option>
+                            <option value="completada">Completada</option>
+                        </select>
+                    </div>
+                    <div>
+                        <button className={styles.closeBoton} onClick={handleCloseModal}>X</button>
+                        <button className={styles.saveBoton} type="submit">
+                            {tareaSeleccionada ? "Editar Tarea" : "Crear Tarea"}
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
-    </div>
     )
 }

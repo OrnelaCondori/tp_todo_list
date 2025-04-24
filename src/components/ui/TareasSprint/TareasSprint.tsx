@@ -43,33 +43,33 @@ export const SprintDetalle = () => {
 
     return (
         <div className={styles.containerPrincipalSprint}>
-            <div>
-                <div>
+            <div className={styles.conteinerContentSprint}>
+                <div className={styles.titleContentSprint}>
                     <h2>{sprint.nombre}</h2>
                     <button onClick={() => {
                         setTareaSeleccionada(null);
                         setOpenModalTarea(true);
                     }}>Agregar Tarea</button>
                 </div>
-                <div className={styles.tareasContainer}>
-                    <div className={styles.columna}>
-                        <h3>Pendiente</h3>
+                <div className={styles.containerColumnaTareas}>
+                    <div className={styles.columnaTareas}>
+                        <h3 className={styles.tituloColumna}>Pendiente</h3>
                         {sprint.tareas
                             .filter((t) => t.estado === "pendiente")
                             .map((tarea) => (
                                 <CardTareaSprint tarea={tarea} idSprint={sprint.id!} handleOpenModalEdit={handleOpenModalEdit} />
                             ))}
                     </div>
-                    <div className={styles.columna}>
-                        <h3>En proceso</h3>
+                    <div className={styles.columnaTareas}>
+                        <h3 className={styles.tituloColumna}>En proceso</h3>
                         {sprint.tareas
                             .filter((t) => t.estado === "en proceso")
                             .map((tarea) => (
                                 <CardTareaSprint tarea={tarea} idSprint={sprint.id!} handleOpenModalEdit={handleOpenModalEdit}/>
                             ))}
                     </div>
-                    <div className={styles.columna}>
-                        <h3>Completadas</h3>
+                    <div className={styles.columnaTareas}>
+                        <h3 className={styles.tituloColumna}>Completadas</h3>
                         {sprint.tareas
                             .filter((t) => t.estado === "completada")
                             .map((tarea) => (

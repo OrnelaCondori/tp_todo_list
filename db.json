@@ -30,7 +30,14 @@
             "titulo": "Tarea 2",
             "descripcion": "Estamos aca",
             "estado": "pendiente",
-            "fechaLimite": "2025-03-06"
+            "fechaLimite": "2025-04-08"
+          },
+          {
+            "id": "",
+            "titulo": "Tarea 3",
+            "descripcion": "es una prueba de la tarea payugbda naoicnokdcn cdnwocns ",
+            "fechaLimite": "2025-05-03",
+            "estado": "en proceso"
           }
         ]
       },
@@ -39,7 +46,15 @@
         "fechaInicio": "2025-04-09",
         "fechaCierre": "2025-04-25",
         "nombre": "sprint 22",
-        "tareas": []
+        "tareas": [
+          {
+            "id": "",
+            "titulo": "tarea 5",
+            "descripcion": "esta es una tarea de prueba",
+            "fechaLimite": "2025-04-17",
+            "estado": "completada"
+          }
+        ]
       }
     ]
   }

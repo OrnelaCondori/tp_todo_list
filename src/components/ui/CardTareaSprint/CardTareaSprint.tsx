@@ -3,6 +3,7 @@ import { ITarea } from "../../../types/IInterfaces";
 import { tareaStore } from "../../../store/tareaStore";
 import { useSprint } from "../../../hooks/useSprint";
 import { DetalleTareaSprint } from "../Modal/TareaSprint/TareaSprintDetalle/DetalleTareaSprint"; 
+import styles from "./CardTareaSprint.module.css"
 
 type ICardTareaSprint = {
     tarea: ITarea;
@@ -59,33 +60,49 @@ export const CardTareaSprint: FC<ICardTareaSprint> = ({ tarea, idSprint, handleO
         }
     };
     
+    //formateo la fechaLimite para que de muestre el número de día y iniciales del mes
+    const formatearDia = (fecha: string) => {
+        const dia = new Date(fecha).getDate();
+        return String(dia).padStart(2, '0');
+    };
+    const formatearMes = (fecha: string) => {
+        return new Date(fecha).toLocaleString('es-ES', { month: 'short' });
+    };
+    
 
     return (
         <div>
-            <div>
-                <div>
-                    <p>{tarea.fechaLimite}</p>
-                    <h3>{tarea.titulo}</h3>
+            <div className={styles.containerTareaSprintCard}>
+                <div className={styles.containerTituloTareaSprint}>
+                    <div className={styles.containerFechaTarea}>
+                        <span className={styles.fechaTareaDia}><b>{formatearDia(tarea.fechaLimite)}</b></span>
+                        <span>{formatearMes(tarea.fechaLimite)}</span>
+                    </div>
+                    <div className={styles.tituloTareaSprint}>
+                        <p><b>{tarea.titulo}</b></p>
+                    </div>
                 </div>
-                <div>
-                    <p>{tarea.descripcion}</p>
-                </div>
-                <div>
-                    <button>Enviar a Backlog</button>
-                    <button onClick={cambiarEstadoTarea}>
-                        <span className="material-symbols-outlined">
-                            double_arrow
-                        </span>
-                    </button>
-                    <button onClick={verDetalle}>
-                        <span className="material-symbols-outlined">visibility</span>
-                    </button>
-                    <button onClick={editarTarea}>
-                        <span className="material-symbols-outlined">edit</span>
-                    </button>
-                    <button onClick={eliminarTarea}>
-                        <span className="material-symbols-outlined">delete</span>
-                    </button>
+                <div className={styles.conteinerContentTareaSprintCard}>
+                    <div className={styles.descripcionTareaSprint}>
+                        <p>{tarea.descripcion}</p>
+                    </div>
+                    <div>
+                        <button>Enviar a Backlog</button>
+                        <button onClick={cambiarEstadoTarea}>
+                            <span className="material-symbols-outlined">
+                                double_arrow
+                            </span>
+                        </button>
+                        <button onClick={verDetalle}>
+                            <span className="material-symbols-outlined">visibility</span>
+                        </button>
+                        <button onClick={editarTarea}>
+                            <span className="material-symbols-outlined">edit</span>
+                        </button>
+                        <button onClick={eliminarTarea}>
+                            <span className="material-symbols-outlined">delete</span>
+                        </button>
+                    </div>
                 </div>
             </div>
 

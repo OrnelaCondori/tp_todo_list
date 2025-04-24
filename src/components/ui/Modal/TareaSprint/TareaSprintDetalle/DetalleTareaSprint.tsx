@@ -17,7 +17,7 @@ export const DetalleTareaSprint: React.FC<DetalleTareaSprintProps> = ({ tarea, o
                 <p><strong>Fecha límite:</strong> {tarea.fechaLimite}</p>
                 <p><strong>Estado:</strong> {tarea.estado}</p>
 
-                <div className={styles.buttonContainer}>
+                <div>
                     <button onClick={onClose}>Cerrar</button>
                 </div>
             </div>

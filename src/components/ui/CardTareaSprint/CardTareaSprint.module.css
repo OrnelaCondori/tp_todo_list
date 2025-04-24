@@ -1,0 +1,34 @@
+.containerTareaSprintCard{
+    background-color: white;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+.containerTituloTareaSprint {
+    display: flex;
+    align-items: center;
+}
+.containerFechaTarea {
+    background-color: var(--color-rojo);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0.3rem 1rem;
+    text-transform: uppercase;
+}
+.fechaTareaDia {
+    font-size:larger;
+}
+.tituloTareaSprint {
+    width: 100%;
+    text-align: center;
+}
+
+.conteinerContentTareaSprintCard {
+    padding: 1rem;
+}
+.descripcionTareaSprint {
+    margin-bottom: 0.6rem;
+}
