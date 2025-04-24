@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Tuffy:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 .containerTareaSprintCard{
     background-color: white;
     border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
 }
@@ -17,13 +20,19 @@
     align-items: center;
     padding: 0.3rem 1rem;
     text-transform: uppercase;
+    border-top-left-radius: 8px;
 }
 .fechaTareaDia {
     font-size:larger;
 }
 .tituloTareaSprint {
+    font-size: 30px;
+    font-family: "Tuffy", sans-serif;
+    font-weight: 250;
+    font-style: normal;
     width: 100%;
-    text-align: center;
+    padding-left: 1rem;
+    text-align: left;
 }
 
 .conteinerContentTareaSprintCard {

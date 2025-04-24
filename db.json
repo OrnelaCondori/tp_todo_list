@@ -45,7 +45,15 @@
         "fechaInicio": "2025-04-09",
         "fechaCierre": "2025-04-25",
         "nombre": "sprint 22",
-        "tareas": []
+        "tareas": [
+          {
+            "id": "",
+            "titulo": "Tarea 1",
+            "descripcion": "tarea de prueba titulo, prueba de espacio de tarea para evaluar ancho de contener blanco izquierdo ",
+            "fechaLimite": "2025-04-29",
+            "estado": "pendiente"
+          }
+        ]
       }
     ]
   }
