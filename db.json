@@ -13,13 +13,6 @@
   "sprintList": {
     "sprints": [
       {
-        "id": "b0e3f34b-68c6-49eb-b059-ab251ed81629",
-        "fechaInicio": "2025-03-04",
-        "fechaCierre": "2025-03-11",
-        "nombre": "Sprint 30",
-        "tareas": []
-      },
-      {
         "id": "Wed Apr 23 2025",
         "fechaInicio": "2025-04-09",
         "fechaCierre": "2025-04-25",
@@ -27,8 +20,8 @@
         "tareas": [
           {
             "id": "",
-            "titulo": "tarea 5",
-            "descripcion": "esta tarea es de prueba",
+            "titulo": "TTTTTTTTTTTTTTTTT",
+            "descripcion": "enviar unaenviar unaenviar unaenviar unaenviar unaenviar unaenviar una",
             "fechaLimite": "2025-04-26",
             "estado": "en proceso"
           },
@@ -40,6 +33,13 @@
             "estado": "pendiente"
           }
         ]
+      },
+      {
+        "id": "Thu Apr 24 2025",
+        "fechaInicio": "2025-04-24",
+        "fechaCierre": "2025-04-25",
+        "nombre": "HHHHHHHHHHHHHHH",
+        "tareas": []
       }
     ]
   }

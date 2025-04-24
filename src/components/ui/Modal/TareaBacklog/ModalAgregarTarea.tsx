@@ -3,6 +3,7 @@ import { tareaStore } from "../../../../store/tareaStore"
 import styles from "./ModalAgregarTarea.module.css"
 import { ITarea } from "../../../../types/IInterfaces"
 import { useTareas } from "../../../../hooks/useTarea"
+import { object, string } from 'yup'
 
 type IModal = {
   handleCloseModal: VoidFunction
@@ -16,33 +17,77 @@ const initialState: ITarea = {
   estado: "" // Estado inicial vacío
 }
 
+const tareaBacklogSchema = object({
+  titulo: string()
+      .required("El título es obligatorio")
+      .min(1, "Debe tener al menos 1 carácter")
+      .max(17, "No puede superar los 17 caracteres"),
+  descripcion: string()
+      .required("La descripción es obligatoria")
+      .max(100, "No puede superar los 100 catacteres"),
+  fechaLimite: string()
+      .required("La fecha de cierre es obligatoria"),
+  estado: string()
+      .required("El estado es obligatorio")
+      .oneOf(["pendiente", "en proceso", "completada"], "Estado no válido")
+})
+
 export const ModalTarea: FC<IModal> = ({ handleCloseModal }) => {
   const tareaActiva = tareaStore((state) => state.tareaActiva)
   const setTareaActiva = tareaStore((state) => state.setTareaActiva)
   const { crearTarea, putTareaEditar } = useTareas()
 
   const [formValues, setFormValues] = useState<ITarea>(initialState)
+  const [errors, setErrors] = useState<{ [key: string]: string }>({})
 
   useEffect(() => {
     if (tareaActiva) setFormValues(tareaActiva)
   }, [])
 
     // Manejo de inputs y select
-  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = async (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target
-    setFormValues((prev) => ({ ...prev, [name]: value }))
+    const updatedValues = { ...formValues, [name]: value }
+    setFormValues(updatedValues)
+    
+    //valida el campo
+    try {
+      await tareaBacklogSchema.validateAt(name, updatedValues)
+      setErrors(prev => {
+          const newErrors = { ...prev}
+          delete newErrors[name]
+          return newErrors
+      })
+    } catch (error: any) {
+        setErrors(prev => ({ ...prev, [name]: error.message }))
+    }
   }
 
     // Guardar formulario
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
-    if (tareaActiva) {
-      putTareaEditar(formValues)
-    } else {
-      crearTarea({ ...formValues, id: new Date().toDateString() })
+
+    //validamos todo el formulario
+    try {
+      await tareaBacklogSchema.validate(formValues, {abortEarly: false})
+      
+      if (tareaActiva) {
+        putTareaEditar(formValues)
+      } else {
+        crearTarea({ ...formValues, id: new Date().toDateString() })
+      }
+      setTareaActiva(null)
+      handleCloseModal()
+    } catch (error: any) {
+      if (error.inner) {
+        const formErrors: { [key: string]: string } = {}
+        error.inner.forEach((error: any) => {
+            formErrors[error.path] = error.message
+        })
+        setErrors(formErrors)
+      }
     }
-    setTareaActiva(null)
-    handleCloseModal()
+    
   }
 
   return (
@@ -53,16 +98,23 @@ export const ModalTarea: FC<IModal> = ({ handleCloseModal }) => {
         </div>
         <form onSubmit={handleSubmit} >
           <div>
-            <input onChange={handleChange} value={formValues.titulo} type="text" required autoComplete="off" placeholder="Ingrese el Titulo" name="titulo" />
-            <textarea onChange={handleChange} value={formValues.descripcion} placeholder="Ingrese una descripción" required name="descripcion"></textarea>
-            <input onChange={handleChange} value={formValues.fechaLimite} type="date" required autoComplete="off" name="fechaLimite" />
+            <input onChange={handleChange} value={formValues.titulo} type="text" autoComplete="off" placeholder="Ingrese el Titulo" name="titulo" />
+            {errors.titulo && <p className={styles.error}>{errors.titulo}</p>}
+
+            <textarea onChange={handleChange} value={formValues.descripcion} placeholder="Ingrese una descripción" name="descripcion"></textarea>
+            {errors.descripcion && <p className={styles.error}>{errors.descripcion}</p>}
+
+            <input onChange={handleChange} value={formValues.fechaLimite} type="date" autoComplete="off" name="fechaLimite" />
+            {errors.fechaLimite && <p className={styles.error}>{errors.fechaLimite}</p>}
+
               {/* Select para Estado */}
-            <select className={styles.selectEstado} name="estado" value={formValues.estado} onChange={handleChange} required>
+            <select className={styles.selectEstado} name="estado" value={formValues.estado} onChange={handleChange} >
               <option value="">Selecciona un estado</option>
               <option value="pendiente">Pendiente</option>
               <option value="en proceso">En Proceso</option>
               <option value="completada">Completada</option>
             </select>
+            {errors.estado && <p className={styles.error}>{errors.estado}</p>}
           </div>
           <div >
             <button className={styles.closeBoton}onClick={handleCloseModal}>X</button>

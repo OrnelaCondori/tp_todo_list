@@ -8,7 +8,6 @@
     justify-content: center;
     z-index: 1000;
 }
-
 .modalContent {
     background: #f8d7ff; /* Color lila claro */
     padding: 20px;
@@ -31,12 +30,10 @@
     cursor: pointer;
     color: #5a056b; /* Violeta oscuro */
 }
-
 h3 {
     text-transform: uppercase;
     margin-bottom: 15px;
 }
-
 input {
     width: 100%;
     padding: 10px;
@@ -47,7 +44,6 @@ input {
     background: white;
     outline: none;
 }
-
 
 .saveBoton {
     padding: 10px 16px;
@@ -60,7 +56,15 @@ input {
     cursor: pointer;
     margin-top: 16px;
 }
-
 .saveBoton:hover {
     background-color: #5a056b; /* Un tono más oscuro */
+}
+
+.error {
+    width: 100%;
+    color: red;
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+    text-align: left;
+    margin-left: 0.5rem;
 }
