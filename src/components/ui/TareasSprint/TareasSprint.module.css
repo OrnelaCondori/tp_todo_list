@@ -16,6 +16,9 @@
     align-items: center;
     margin-bottom: 1.5rem;
 }
+.titleContentSprint h2{
+    text-transform: capitalize;
+}
 .titleContentSprint button {
     background-color: var(--color-violeta);
     color: #fff;
