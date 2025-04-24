@@ -69,11 +69,26 @@ export const CardTareaSprint: FC<ICardTareaSprint> = ({ tarea, idSprint, handleO
     };
     
 
+    //usamos una funcion para calcular los días hasta fechaLimite y determinar un color segun eso
+    const determinarClaseColor = (fecha: string) => {
+        const hoy = new Date;
+        const fechaLimite = new Date(fecha);
+        //sin hora para que no haya errores
+        hoy.setHours(0,0,0,0);
+        fechaLimite.setHours(0,0,0,0);
+
+        const diferencia = fechaLimite.getDate() - hoy.getDate();
+
+        if(diferencia <= 3) return styles.colorRojo;
+        if(diferencia <= 5) return styles.colorAmarrilo;
+        return styles.colorVerde;
+    }
+
     return (
         <div>
             <div className={styles.containerTareaSprintCard}>
                 <div className={styles.containerTituloTareaSprint}>
-                    <div className={styles.containerFechaTarea}>
+                    <div className={`${styles.containerFechaTarea} ${determinarClaseColor(tarea.fechaLimite)}`}>
                         <span className={styles.fechaTareaDia}><b>{formatearDia(tarea.fechaLimite)}</b></span>
                         <span>{formatearMes(tarea.fechaLimite)}</span>
                     </div>

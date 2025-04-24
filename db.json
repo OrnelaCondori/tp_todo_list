@@ -20,15 +20,29 @@
         "tareas": [
           {
             "id": "",
-            "titulo": "TTTTTTTTTTTTTTTTT",
-            "descripcion": "enviar unaenviar unaenviar unaenviar unaenviar unaenviar unaenviar una",
-            "fechaLimite": "2025-04-26",
-            "estado": "en proceso"
+            "titulo": "Tarea número 4",
+            "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing, elit enim conubia odio duis libero, nunc egestash",
+            "fechaLimite": "2025-04-29",
+            "estado": "pendiente"
           },
           {
-            "id": "Thu Apr 24 2025",
-            "titulo": "tarea numero 6",
-            "descripcion": "una tarea que quiero enviar a sprint",
+            "id": "",
+            "titulo": "Tarea número 8",
+            "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing, elit enim conubia odio duis libero, nunc egestash",
+            "fechaLimite": "2025-04-26",
+            "estado": "pendiente"
+          },
+          {
+            "id": "",
+            "titulo": "Tarea Numéro 9",
+            "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing, elit enim conubia odio duis libero, nunc egestash",
+            "fechaLimite": "2025-05-01",
+            "estado": "pendiente"
+          },
+          {
+            "id": "",
+            "titulo": "Tarea Núemro 10",
+            "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing, elit enim conubia odio duis libero, nunc egestash",
             "fechaLimite": "2025-04-26",
             "estado": "pendiente"
           }
@@ -38,8 +52,23 @@
         "id": "Thu Apr 24 2025",
         "fechaInicio": "2025-04-24",
         "fechaCierre": "2025-04-25",
-        "nombre": "HHHHHHHHHHHHHHH",
-        "tareas": []
+        "nombre": "sprint 45",
+        "tareas": [
+          {
+            "id": "",
+            "titulo": "tarea número 7",
+            "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing, elit enim conubia odio duis libero, nunc egestash",
+            "fechaLimite": "2025-05-01",
+            "estado": "pendiente"
+          },
+          {
+            "id": "Thu Apr 24 2025",
+            "titulo": "tarea numero 12",
+            "descripcion": "una tarea que quiero enviar a sprint",
+            "fechaLimite": "2025-04-30",
+            "estado": "completada"
+          }
+        ]
       }
     ]
   }
