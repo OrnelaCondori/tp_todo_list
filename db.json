@@ -21,6 +21,13 @@
         "descripcion": "esta es una prueba de tarea",
         "fechaLimite": "2025-05-02",
         "estado": "en proceso"
+      },
+      {
+        "id": "50699dec-3d1a-45ff-a94d-82d416eac053",
+        "titulo": "Tarea 2",
+        "descripcion": "Estamos aca",
+        "estado": "completada",
+        "fechaLimite": "2025-04-08"
       }
     ]
   },
@@ -31,15 +38,7 @@
         "fechaInicio": "2025-03-04",
         "fechaCierre": "2025-03-11",
         "nombre": "Sprint 122",
-        "tareas": [
-          {
-            "id": "50699dec-3d1a-45ff-a94d-82d416eac053",
-            "titulo": "Tarea 2",
-            "descripcion": "Estamos aca",
-            "estado": "en proceso",
-            "fechaLimite": "2025-04-08"
-          }
-        ]
+        "tareas": []
       },
       {
         "id": "Wed Apr 23 2025",
