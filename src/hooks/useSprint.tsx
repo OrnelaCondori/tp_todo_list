@@ -1,8 +1,9 @@
-import { addTaskToSprintController, createSprintController, deleteByIdSprintController, deleteTaskToSprintController, getAllSprintController, updateSprintController, updateTaskToSprintController } from "../data/SprintController"
+import { addTaskToSprintController, createSprintController, deleteByIdSprintController, deleteTaskToSprintController, getAllSprintController, sendTaskToBacklogController, updateSprintController, updateTaskToSprintController } from "../data/SprintController"
 import { sprintStore } from "../store/sprintStore"
 import {useShallow} from "zustand/shallow"
 import { ISprint , ITarea} from "../types/IInterfaces"
 import Swal from "sweetalert2"
+
 
 export const useSprint = () => {
     const {sprints, setArraySprints, agregarNuevaSprint, eliminarUnaSprint, editarUnaSprint} = sprintStore(useShallow((state) =>({
@@ -100,6 +101,16 @@ export const useSprint = () => {
         }
     };
     const deleteTaskInSprint = async (idSprint: string, idTarea: string) => {
+        const confirm = await Swal.fire({
+            title: '¿Estás seguro?',
+            text: 'Esta acción eliminará la tarea permanentemente',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Sí, eliminar',
+            cancelButtonText: 'Cancelar'
+        });
+        if (!confirm.isConfirmed) return;
+    
         try {
             await deleteTaskToSprintController(idSprint, idTarea);
             const sprintActualizada = sprints.find((s) => s.id === idSprint);
@@ -114,6 +125,31 @@ export const useSprint = () => {
         }
     };
 
+    const enviarTareaBacklog = async (idTarea: string, idSprint: string) => {
+        const confirm = await Swal.fire({
+            title: '¿Mover al backlog?',
+            text: 'La tarea será enviada al backlog y removida de esta sprint',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonText: 'Sí, mover',
+            cancelButtonText: 'Cancelar'
+        });
+        if (!confirm.isConfirmed) return;
+
+        try {
+            await sendTaskToBacklogController(idTarea);
+            const sprintActualizada = sprints.find((s) => s.id === idSprint);
+            if(sprintActualizada) {
+                const tareasFiltradas = sprintActualizada.tareas.filter((t) => t.id !== idTarea);
+                editarUnaSprint({ ...sprintActualizada, tareas: tareasFiltradas});
+            }
+            Swal.fire("¡Éxito!", "Tarea movida al backlog", "success");
+        } catch (error) {
+            console.error("Error al enviar la tarea al backlog", error);
+            Swal.fire("Error", "No se pudo enviar la tarea al backlog", "error");
+        }
+    }
+
     return {
         getSprints,
         crearSprint,
@@ -122,6 +158,7 @@ export const useSprint = () => {
         crearTareaInSprint,
         updateTaskInSprint,
         deleteTaskInSprint,
+        enviarTareaBacklog,
         sprints,
     }
 }

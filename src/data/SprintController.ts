@@ -1,6 +1,7 @@
 import axios from "axios";
 import { ISprint, ITarea } from "../types/IInterfaces";
 import { putSprintList } from "../http/Sprint";
+import { createBacklogTareaController } from "./BacklogController";
 
 const API_URL = "http://localhost:3000/sprintList"; 
 
@@ -126,3 +127,33 @@ export const deleteTaskToSprintController = async (idSprint: string, idTarea: st
         console.log("Error en deleteTaskToSprintController", error);
     }
 };
+
+//función para enviar una tarea al backlog
+export const sendTaskToBacklogController = async (idTarea: string) => {
+    try {
+        const sprints = await getAllSprintController();
+        if(sprints) {
+            let tareaEncontrada: ITarea |undefined;
+
+            const sprintsActualizadas = sprints.map((sprint) => {
+                const contieneTarea = sprint.tareas.some((t) => t.id === idTarea);
+
+                if(contieneTarea) {
+                    tareaEncontrada = sprint.tareas.find((t) => t.id === idTarea);
+                    const tareasFiltradas = sprint.tareas.filter((t) => t.id !== idTarea)
+                    return {...sprint, tareas: tareasFiltradas};
+                }
+
+                return sprint;
+            })
+
+            //si encuentra la tarea la agrega al backlog
+            if(tareaEncontrada) {
+                await putSprintList(sprintsActualizadas)
+                await createBacklogTareaController(tareaEncontrada);
+            }
+        }
+    } catch (error) {
+        console.log("Error en sendTaskToBacklogController", error)
+    }
+}

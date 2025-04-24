@@ -16,7 +16,7 @@ export const CardTareaSprint: FC<ICardTareaSprint> = ({ tarea, idSprint, handleO
     const [mostrarDetalle, setMostrarDetalle] = useState(false);
     const setTareaActiva = tareaStore((state) => state.setTareaActiva);
 
-    const { deleteTaskInSprint, updateTaskInSprint } = useSprint();
+    const { deleteTaskInSprint, updateTaskInSprint, enviarTareaBacklog } = useSprint();
 
     const editarTarea = () => {
         setTareaActiva(tarea);
@@ -34,6 +34,7 @@ export const CardTareaSprint: FC<ICardTareaSprint> = ({ tarea, idSprint, handleO
         setMostrarDetalle(true);
     };
 
+    //mover tarea de un estado a otro
     const cambiarEstadoTarea = () => {
         let nuevoEstado = "";
         switch (tarea.estado) {
@@ -49,12 +50,10 @@ export const CardTareaSprint: FC<ICardTareaSprint> = ({ tarea, idSprint, handleO
             default:
                 nuevoEstado = "pendiente";
         }
-    
         const tareaActualizada = {
             ...tarea,
             estado: nuevoEstado,
         };
-    
         if (idSprint) {
             updateTaskInSprint(idSprint, tareaActualizada); 
         }
@@ -87,7 +86,9 @@ export const CardTareaSprint: FC<ICardTareaSprint> = ({ tarea, idSprint, handleO
                         <p>{tarea.descripcion}</p>
                     </div>
                     <div>
-                        <button>Enviar a Backlog</button>
+                        <button 
+                            onClick={() => enviarTareaBacklog(tarea.id, idSprint!)}
+                        >Enviar a Backlog</button>
                         <button onClick={cambiarEstadoTarea}>
                             <span className="material-symbols-outlined">
                                 double_arrow
