@@ -26,6 +26,9 @@ export const TareasBacklog = () => {
     const handleCloseModal=()=>{
         setOpenModalTarea(false)
     }
+    const refreshTareas = () => {
+        getTareas();
+    };
 
     return (
         <>
@@ -38,7 +41,8 @@ export const TareasBacklog = () => {
                     {tareas.length > 0 ? (
                         tareas.map((tarea) => (
                             <CardTareaBacklog handleOpenModalEdit = {handleOpenModalEdit}
-                            tarea={tarea} />
+                            tarea={tarea}
+                            refreshTareas={refreshTareas} />
                         ))
                     ) : (
                         <h3>No hay tareas en el backlog</h3>
