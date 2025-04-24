@@ -1,5 +1,5 @@
 import axios from "axios";
-import { ISprint } from "../types/IInterfaces";
+import { ISprint, ITarea } from "../types/IInterfaces";
 import { putSprintList } from "../http/Sprint";
 
 const API_URL = "http://localhost:3000/sprintList"; 
@@ -61,3 +61,68 @@ export const deleteByIdSprintController = async (idSprintEliminar : string) => {
         console.log("Error en deleteByIdSprintController", error);
     }
 }
+
+export const addTaskToSprintController = async (idSprint: string, nuevaTarea: ITarea) => {
+    try {
+        const sprints = await getAllSprintController();
+
+        if (sprints) {
+            const sprintsActualizadas = sprints.map((sprint) => {
+                if (sprint.id === idSprint) {
+                    return {
+                        ...sprint,
+                        tareas: [...sprint.tareas, nuevaTarea],
+                    };
+                }
+                return sprint;
+            });
+
+            await putSprintList(sprintsActualizadas);
+            return nuevaTarea;
+        }
+    } catch (error) {
+        console.log("Error en addTaskToSprintController", error);
+    }
+};
+
+export const updateTaskToSprintController = async (idSprint: string, tareaActualizada: ITarea) => {
+    try {
+        const sprints = await getAllSprintController();
+
+        if (sprints) {
+            const sprintsActualizadas = sprints.map((sprint) => {
+                if (sprint.id === idSprint) {
+                    const tareasActualizadas = sprint.tareas.map((tarea) =>
+                        tarea.id === tareaActualizada.id ? { ...tarea, ...tareaActualizada } : tarea
+                    );
+                    return { ...sprint, tareas: tareasActualizadas };
+                }
+                return sprint;
+            });
+
+            await putSprintList(sprintsActualizadas);
+            return tareaActualizada;
+        }
+    } catch (error) {
+        console.log("Error en updateTaskToSprintController", error);
+    }
+};
+
+export const deleteTaskToSprintController = async (idSprint: string, idTarea: string) => {
+    try {
+        const sprints = await getAllSprintController();
+
+        if (sprints) {
+            const sprintsActualizadas = sprints.map((sprint) => {
+                if (sprint.id === idSprint) {
+                    const tareasFiltradas = sprint.tareas.filter((tarea) => tarea.id !== idTarea);
+                    return { ...sprint, tareas: tareasFiltradas };
+                }
+                return sprint;
+            });
+            await putSprintList(sprintsActualizadas);
+        }
+    } catch (error) {
+        console.log("Error en deleteTaskToSprintController", error);
+    }
+};

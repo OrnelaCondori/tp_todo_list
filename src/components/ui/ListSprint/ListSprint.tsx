@@ -57,7 +57,10 @@ export const ListSprint = () => {
                     )}
                 </div>
                 <div>
-                    <button className={styles.buttonAdd} onClick={() => setOpenModalSprint(true)}>+</button>
+                    <button className={styles.buttonAdd} onClick={() => {
+                        setOpenModalSprint(true)
+                        setSprintActiva(null)
+                    }}>+</button>
                 </div>
             </div>
             {openModalSprint && <ModalSprint handleCloseModal={handleCloseModal} />}

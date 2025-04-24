@@ -3,7 +3,7 @@
     "tareas": [
       {
         "id": "dcec8ad4-31e0-4279-8ccf-72bd1f2bb52d",
-        "titulo": "Tarea backlog",
+        "titulo": "Tarea backlogs",
         "descripcion": "Descripcion tarea backlog",
         "estado": "pendiente",
         "fechaLimite": "2025-03-20"
@@ -20,25 +20,32 @@
   "sprintList": {
     "sprints": [
       {
-        "id": "b8e3f3ab-68c6-49eb-bb59-ab251ed81629",
+        "id": "b0e3f34b-68c6-49eb-b059-ab251ed81629",
         "fechaInicio": "2025-03-04",
         "fechaCierre": "2025-03-11",
         "nombre": "Sprint 122",
         "tareas": [
           {
-            "id": "56996de-3d1a-45ff-a94d-82416eac635f",
+            "id": "50699dec-3d1a-45ff-a94d-82d416eac053",
             "titulo": "Tarea 2",
             "descripcion": "Estamos aca",
             "estado": "pendiente",
             "fechaLimite": "2025-03-06"
+          },
+          {
+            "id": "",
+            "titulo": "tarea ",
+            "descripcion": "nueva tarea",
+            "fechaLimite": "2025-04-25",
+            "estado": "en proceso"
           }
         ]
       },
       {
         "id": "Wed Apr 23 2025",
-        "fechaInicio": "2025-04-15",
+        "fechaInicio": "2025-04-09",
         "fechaCierre": "2025-04-25",
-        "nombre": "sprint 21",
+        "nombre": "sprint 22",
         "tareas": []
       }
     ]

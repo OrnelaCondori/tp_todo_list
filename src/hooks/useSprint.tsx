@@ -1,7 +1,7 @@
-import { createSprintController, deleteByIdSprintController, getAllSprintController, updateSprintController } from "../data/SprintController"
+import { addTaskToSprintController, createSprintController, deleteByIdSprintController, deleteTaskToSprintController, getAllSprintController, updateSprintController, updateTaskToSprintController } from "../data/SprintController"
 import { sprintStore } from "../store/sprintStore"
 import {useShallow} from "zustand/shallow"
-import { ISprint } from "../types/IInterfaces"
+import { ISprint , ITarea} from "../types/IInterfaces"
 import Swal from "sweetalert2"
 
 export const useSprint = () => {
@@ -67,11 +67,61 @@ export const useSprint = () => {
         }
     }
 
+    const crearTareaInSprint = async (idSprint: string, nuevaTarea: ITarea) => {
+        try {
+            await addTaskToSprintController(idSprint, nuevaTarea);
+            const sprintActualizada = sprints.find((s) => s.id === idSprint);
+            if (sprintActualizada) {
+                editarUnaSprint({
+                ...sprintActualizada,
+                tareas: [...sprintActualizada.tareas, nuevaTarea],
+                });
+            }
+            Swal.fire("¡Éxito!", "Tarea agregada correctamente", "success");
+        } catch (error) {
+            console.error("Error al crear la tarea", error);
+            Swal.fire("Error", "No se pudo crear la tarea", "error");
+        }
+    };
+    const updateTaskInSprint = async (idSprint: string, tareaActualizada: ITarea) => {
+        try {
+            await updateTaskToSprintController(idSprint, tareaActualizada);
+            const sprintActualizada = sprints.find((s) => s.id === idSprint);
+            if (sprintActualizada) {
+                const tareasActualizadas = sprintActualizada.tareas.map((t) =>
+                t.id === tareaActualizada.id ? tareaActualizada : t
+                );
+                editarUnaSprint({ ...sprintActualizada, tareas: tareasActualizadas });
+            }
+            Swal.fire("¡Éxito!", "Tarea actualizada correctamente", "success");
+        } catch (error) {
+            console.error("Error al actualizar la tarea", error);
+            Swal.fire("Error", "No se pudo actualizar la tarea", "error");
+        }
+    };
+    const deleteTaskInSprint = async (idSprint: string, idTarea: string) => {
+        try {
+            await deleteTaskToSprintController(idSprint, idTarea);
+            const sprintActualizada = sprints.find((s) => s.id === idSprint);
+            if (sprintActualizada) {
+                const tareasFiltradas = sprintActualizada.tareas.filter((t) => t.id !== idTarea);
+                editarUnaSprint({ ...sprintActualizada, tareas: tareasFiltradas });
+            }
+            Swal.fire("¡Éxito!", "Tarea eliminada correctamente", "success");
+        } catch (error) {
+            console.error("Error eliminando la tarea:", error);
+            Swal.fire("Error", "Hubo un problema al eliminar la tarea", "error");
+        }
+    };
+
     return {
         getSprints,
         crearSprint,
         editarSprint,
         eliminarSprint,
+        crearTareaInSprint,
+        updateTaskInSprint,
+        deleteTaskInSprint,
         sprints,
     }
 }
