@@ -20,21 +20,6 @@
   "sprintList": {
     "sprints": [
       {
-        "id": "b8e3f3ab-68c6-49eb-bb59-ab251ed81629",
-        "fechaInicio": "2025-03-04",
-        "fechaCierre": "2025-03-11",
-        "nombre": "Sprint 122",
-        "tareas": [
-          {
-            "id": "56996de-3d1a-45ff-a94d-82416eac635f",
-            "titulo": "Tarea 2",
-            "descripcion": "Estamos aca",
-            "estado": "pendiente",
-            "fechaLimite": "2025-03-06"
-          }
-        ]
-      },
-      {
         "id": "Wed Apr 23 2025",
         "fechaInicio": "2025-04-15",
         "fechaCierre": "2025-04-25",
