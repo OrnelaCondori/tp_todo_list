@@ -54,27 +54,33 @@ export const SprintDetalle = () => {
                 <div className={styles.containerColumnaTareas}>
                     <div className={styles.columnaTareas}>
                         <h3 className={styles.tituloColumna}>Pendiente</h3>
-                        {sprint.tareas
-                            .filter((t) => t.estado === "pendiente")
-                            .map((tarea) => (
-                                <CardTareaSprint tarea={tarea} idSprint={sprint.id!} handleOpenModalEdit={handleOpenModalEdit} />
-                            ))}
+                        <div className={styles.conteinerTareasCard}>
+                            {sprint.tareas
+                                .filter((t) => t.estado === "pendiente")
+                                .map((tarea) => (
+                                    <CardTareaSprint tarea={tarea} idSprint={sprint.id!} handleOpenModalEdit={handleOpenModalEdit} />
+                                ))}
+                        </div>
                     </div>
                     <div className={styles.columnaTareas}>
                         <h3 className={styles.tituloColumna}>En proceso</h3>
-                        {sprint.tareas
-                            .filter((t) => t.estado === "en proceso")
-                            .map((tarea) => (
-                                <CardTareaSprint tarea={tarea} idSprint={sprint.id!} handleOpenModalEdit={handleOpenModalEdit}/>
-                            ))}
+                        <div className={styles.conteinerTareasCard}>
+                            {sprint.tareas
+                                .filter((t) => t.estado === "en proceso")
+                                .map((tarea) => (
+                                    <CardTareaSprint tarea={tarea} idSprint={sprint.id!} handleOpenModalEdit={handleOpenModalEdit}/>
+                                ))}
+                        </div>
                     </div>
                     <div className={styles.columnaTareas}>
                         <h3 className={styles.tituloColumna}>Completadas</h3>
-                        {sprint.tareas
-                            .filter((t) => t.estado === "completada")
-                            .map((tarea) => (
-                                <CardTareaSprint tarea={tarea} idSprint={sprint.id!} handleOpenModalEdit={handleOpenModalEdit}/>
-                            ))}
+                        <div className={styles.conteinerTareasCard}>
+                            {sprint.tareas
+                                .filter((t) => t.estado === "completada")
+                                .map((tarea) => (
+                                    <CardTareaSprint tarea={tarea} idSprint={sprint.id!} handleOpenModalEdit={handleOpenModalEdit}/>
+                                ))}
+                        </div>
                     </div>
                 </div>
             </div>

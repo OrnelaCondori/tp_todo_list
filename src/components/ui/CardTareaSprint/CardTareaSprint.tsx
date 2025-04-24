@@ -82,10 +82,10 @@ export const CardTareaSprint: FC<ICardTareaSprint> = ({ tarea, idSprint, handleO
                     </div>
                 </div>
                 <div className={styles.conteinerContentTareaSprintCard}>
-                    <div className={styles.descripcionTareaSprint}>
+                    <div className={styles.descripcionTareaSprintCard}>
                         <p>{tarea.descripcion}</p>
                     </div>
-                    <div>
+                    <div className={styles.botonesTareaSprintCard}>
                         <button 
                             onClick={() => enviarTareaBacklog(tarea.id, idSprint!)}
                         >Enviar a Backlog</button>
