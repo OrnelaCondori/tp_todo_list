@@ -1,0 +1,80 @@
+.containerTareaSprintCard{
+    background-color: white;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+.containerTituloTareaSprint {
+    display: flex;
+    align-items: center;
+}
+.containerFechaTarea {
+    background-color: var(--color-rojo);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0.3rem 1rem;
+    text-transform: uppercase;
+}
+.fechaTareaDia {
+    font-size:larger;
+}
+.tituloTareaSprint {
+    width: 100%;
+    text-align: center;
+}
+
+.conteinerContentTareaSprintCard {
+    padding: 0.6rem 1rem;
+}
+.descripcionTareaSprintCard {
+    margin-bottom: 0.4rem;
+}
+
+@media (min-width: 1441px) {
+    .conteinerContentTareaSprintCard {
+        padding: 1rem;
+    }
+    .descripcionTareaSprintCard {
+        margin-bottom: 0.6rem;
+    }
+}
+
+
+.botonesTareaSprintCard {
+    display: flex;
+    align-items: center; 
+    justify-content: space-between;
+}
+.botonesTareaSprintCard button{
+    padding: 2px;
+    background-color: var(--color-violeta);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+.botonesTareaSprintCard button:hover {
+    background-color: var(--color-violeta-secundario);
+}
+
+.botonesTareaSprintCard button:last-child {
+    background-color: rgb(232, 8, 8);
+}
+.botonesTareaSprintCard button:first-child {
+    padding: 8px;
+    background-color: gray;
+}
+@media (min-width: 1441px) {
+    .botonesTareaSprintCard button:first-child {
+        margin-right: 1rem;
+    }
+}
+@media (min-width: 1680px) {
+    .botonesTareaSprintCard button:first-child {
+        margin-right: 4rem;
+    }
+}
